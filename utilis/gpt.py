@@ -25,5 +25,19 @@ def generate_goal_encouragement(goal, pidgin=False):
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
     )
+from openai import OpenAI
+import os
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+def generate_gpt_feedback(prompt):
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a friendly Nigerian financial coach who speaks Pidgin English and encourages users to manage money wisely."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    return response.choices[0].message.content
 
     return response.choices[0].message.content.strip()
