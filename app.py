@@ -1,7 +1,7 @@
 import streamlit as st
-from utils.budget import calculate_budget, suggest_saving_plan
-from utils.tips import get_random_tip
-from utils.gpt import generate_gpt_tip, generate_goal_encouragement
+from utilis.budget import calculate_budget, suggest_saving_plan
+from utilis.tips import get_random_tip
+from utilis.gpt import generate_gpt_tip, generate_goal_encouragement
 
 st.set_page_config(page_title="KudiBuddy", layout="centered")
 
