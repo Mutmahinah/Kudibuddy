@@ -86,9 +86,10 @@ if use_gpt:
     st.markdown(f"🧠 AI Tip:{gpt_tip}", unsafe_allow_html=True)
 
 
-st.header("📖 Daily Financial Wisdom")
+st.header("📖 Ask for Daily Financial Wisdom")
 
-daily_wisdom = generate_daily_financial_advice()
-st.markdown(f"💡 **Financial Wisdom (English):** _{daily_wisdom['english']}_")
-st.markdown(f"💡 **Financial Wisdom (Pidgin):** _{daily_wisdom['pidgin']}_")
-
+# Button to request AI-generated financial advice
+if st.button("Get Today's Financial Advice"):
+    daily_wisdom = generate_daily_financial_advice()
+    st.markdown(f"💡 **Financial Wisdom (English):** _{daily_wisdom['english']}_")
+    st.markdown(f"💡 **Financial Wisdom (Pidgin):** _{daily_wisdom['pidgin']}_")
