@@ -1,7 +1,8 @@
 import streamlit as st
 from utilis.budget import calculate_budget, suggest_saving_plan
 from utilis.tips import get_random_tip
-from utilis.gpt import generate_gpt_tip, generate_goal_encouragement
+from utilis.gpt import generate_gpt_tip, generate_goal_encouragement, generate_daily_financial_advice
+
 
 st.set_page_config(page_title="KudiBuddy", layout="centered")
 
@@ -83,3 +84,11 @@ def cached_gpt_tip(pidgin):
 if use_gpt:
     gpt_tip = cached_gpt_tip(pidgin_toggle)
     st.markdown(f"🧠 AI Tip:{gpt_tip}", unsafe_allow_html=True)
+
+
+st.header("📖 Daily Financial Wisdom")
+
+daily_wisdom = generate_daily_financial_advice()
+st.markdown(f"💡 **Financial Wisdom (English):** _{daily_wisdom['english']}_")
+st.markdown(f"💡 **Financial Wisdom (Pidgin):** _{daily_wisdom['pidgin']}_")
+
