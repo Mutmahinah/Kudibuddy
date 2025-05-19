@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-import openai
+from openai import OpenAI
 import os
 import streamlit as st
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 def generate_gpt_tip(pidgin=False):
     prompt = "Give me a short personal finance tip"
     if pidgin:
         prompt += " in Nigerian Pidgin English"
 
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-3.5",
         messages=[{"role": "user", "content": prompt}]
     )
@@ -22,14 +22,10 @@ def generate_goal_encouragement(goal, pidgin=False):
     if pidgin:
         prompt += " Write it in Nigerian Pidgin English."
 
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+    response = openai.chat.completions.create(
+        model="gpt-3.5",
         messages=[{"role": "user", "content": prompt}]
     )
-from openai import OpenAI
-import os
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_gpt_feedback(prompt):
     response = client.chat.completions.create(
