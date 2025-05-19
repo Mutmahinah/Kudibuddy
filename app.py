@@ -83,15 +83,8 @@ use_gpt = st.toggle("Get an AI-generated tip")
 if use_gpt:
     # Generate a fresh prompt each time
     today = datetime.today().strftime("%Y-%m-%d")
-    prompt = random.choice([
-        f"Give a personal finance tip about saving money ({today}).",
-        f"Provide investment wisdom for long-term wealth ({today}).",
-        f"Suggest a budgeting trick for managing expenses wisely ({today}).",
-        f"Offer financial advice on avoiding debt ({today}).",
-        f"Share a smart money habit for financial independence ({today})."
-    ])
-
-    gpt_tip = generate_gpt_tip(prompt=prompt, pidgin=pidgin_toggle)
+    
+    gpt_tip = generate_gpt_tip(pidgin=pidgin_toggle)
     
     st.markdown(f"🧠 AI Tip: {gpt_tip}", unsafe_allow_html=True)
 
