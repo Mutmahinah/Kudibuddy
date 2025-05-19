@@ -11,7 +11,7 @@ def generate_gpt_tip(pidgin=False):
         prompt += " in Nigerian Pidgin English"
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5",
         messages=[{"role": "user", "content": prompt}]
     )
 
