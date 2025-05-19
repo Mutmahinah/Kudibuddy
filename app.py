@@ -73,16 +73,26 @@ if st.button("Calculate Weekly Savings"):
         st.error("⚠️ Please enter a valid goal amount and timeframe.")
 
 # --- AI Money Tip ---
+import random
+from datetime import datetime
+
 st.header("✨ Smarter Money Tip")
 
 use_gpt = st.toggle("Get an AI-generated tip")
 
-@st.cache_resource
-def cached_gpt_tip(pidgin):
-    return generate_gpt_tip(pidgin=pidgin_toggle)
-
 if use_gpt:
-    gpt_tip = cached_gpt_tip(pidgin_toggle)
+    # Generate a fresh prompt each time
+    today = datetime.today().strftime("%Y-%m-%d")
+    prompt = random.choice([
+        f"Give a personal finance tip about saving money ({today}).",
+        f"Provide investment wisdom for long-term wealth ({today}).",
+        f"Suggest a budgeting trick for managing expenses wisely ({today}).",
+        f"Offer financial advice on avoiding debt ({today}).",
+        f"Share a smart money habit for financial independence ({today})."
+    ])
+
+    gpt_tip = generate_gpt_tip(prompt=prompt, pidgin=pidgin_toggle)
+    
     st.markdown(f"🧠 AI Tip: {gpt_tip}", unsafe_allow_html=True)
 
 
