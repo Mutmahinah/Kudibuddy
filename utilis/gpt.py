@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from openai import OpenAI
 import os
 import streamlit as st
@@ -10,7 +9,7 @@ def generate_gpt_tip(pidgin=False):
     if pidgin:
         prompt += " in Nigerian Pidgin English"
 
-    response = openai.chat.completions.create(
+    response = client.chat.completions.create(  # Use `client` consistently
         model="gpt-3.5",
         messages=[{"role": "user", "content": prompt}]
     )
@@ -22,10 +21,12 @@ def generate_goal_encouragement(goal, pidgin=False):
     if pidgin:
         prompt += " Write it in Nigerian Pidgin English."
 
-    response = openai.chat.completions.create(
+    response = client.chat.completions.create(  # Use `client` consistently
         model="gpt-3.5",
         messages=[{"role": "user", "content": prompt}]
     )
+
+    return response.choices[0].message.content.strip()  # Added return statement
 
 def generate_gpt_feedback(prompt):
     response = client.chat.completions.create(
@@ -35,6 +36,4 @@ def generate_gpt_feedback(prompt):
             {"role": "user", "content": prompt}
         ]
     )
-    return response.choices[0].message.content
-
-    return response.choices[0].message.content.strip()
+    return response.choices[0].message.content.strip()  # Keep only one return statement
