@@ -29,7 +29,7 @@ def generate_goal_encouragement(goal, pidgin=False):
 
 def generate_gpt_feedback(prompt):
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5",
         messages=[
             {"role": "system", "content": "You are a friendly Nigerian financial coach who speaks Pidgin English and encourages users to manage money wisely."},
             {"role": "user", "content": prompt}
