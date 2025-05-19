@@ -2,7 +2,7 @@
 import openai
 import os
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 def generate_gpt_tip(pidgin=False):
     prompt = "Give me a short personal finance tip"
