@@ -9,7 +9,7 @@ def generate_gpt_tip(pidgin=False):
     if pidgin:
         prompt += " in Nigerian Pidgin English"
 
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-2.0-flash")
     response = model.generate_content(prompt)
 
     return response.text.strip()
@@ -19,7 +19,7 @@ def generate_goal_encouragement(goal, pidgin=False):
     if pidgin:
         prompt += " Write it in Nigerian Pidgin English."
 
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-2.0-flash")
     response = model.generate_content(prompt)
 
     return response.text.strip()
@@ -27,7 +27,7 @@ def generate_goal_encouragement(goal, pidgin=False):
 def generate_gpt_feedback(prompt):
     system_message = "You are a friendly Nigerian financial coach who speaks Pidgin English and encourages users to manage money wisely."
     
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-2.0-flash")
     response = model.generate_content(f"{system_message}\n\n{prompt}")
 
     return response.text.strip()
