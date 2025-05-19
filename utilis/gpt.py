@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import openai
 import os
+import streamlit as st
 
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
