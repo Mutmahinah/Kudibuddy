@@ -78,7 +78,7 @@ use_gpt = st.toggle("Get an AI-generated tip")
 
 @st.cache_resource
 def cached_gpt_tip(pidgin):
-    return generate_gpt_tip(pidgin=pidgin-toggle)
+    return generate_gpt_tip(pidgin=pidgin_toggle)
 
 if use_gpt:
     gpt_tip = cached_gpt_tip(pidgin_toggle)
