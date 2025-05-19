@@ -47,7 +47,7 @@ goal_name = st.text_input("What's your savings goal? (e.g., New phone)")
 goal_amount = st.number_input("Goal amount (₦):", min_value=0)
 weeks = st.number_input("Weeks to achieve this goal:", min_value=1)
 
-pidgin_toggle = st.toggle("Use Nigerian Pidgin for GPT responses")
+pidgin_toggle = st.toggle("Use Nigerian Pidgin ")
 
 if st.button("Calculate Weekly Savings"):
     weekly_savings = suggest_saving_plan(goal_amount, weeks)
@@ -70,7 +70,8 @@ use_gpt = st.toggle("Get an AI-generated tip")
 if use_gpt:
     gpt_tip = generate_gpt_tip(pidgin=pidgin_toggle)
     st.markdown(f"""
-    <div style='background-color:#f9f9f9;padding:15px;border-left:5px solid #00a;'>
-        <strong>🧠 GPT Tip:</strong><br>{gpt_tip}
+    <div style="background-color:#f9f9f9;padding:15px;border-left:5px solid #00a;">
+    <strong>🧠 GPT Tip:</strong><br>{gpt_tip}
     </div>
     """, unsafe_allow_html=True)
+
