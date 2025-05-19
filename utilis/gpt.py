@@ -5,7 +5,14 @@ import streamlit as st
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 def generate_gpt_tip(pidgin=False):
-    prompt = "Give me a short personal finance tip"
+    prompt = random.choice([
+        f"Give a personal finance tip about saving money ({today}).",
+        f"Provide investment wisdom for long-term wealth ({today}).",
+        f"Suggest a budgeting trick for managing expenses wisely ({today}).",
+        f"Offer financial advice on avoiding debt ({today}).",
+        f"Share a smart money habit for financial independence ({today})."
+    ])
+
     if pidgin:
         prompt += " in Nigerian Pidgin English"
 
