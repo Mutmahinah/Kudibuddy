@@ -82,7 +82,6 @@ use_gpt = st.toggle("Get an AI-generated tip")
 
 if use_gpt:
     # Generate a fresh prompt each time
-    today = datetime.today().strftime("%Y-%m-%d")
     
     gpt_tip = generate_gpt_tip(pidgin=pidgin_toggle)
     
