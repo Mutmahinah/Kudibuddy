@@ -30,4 +30,23 @@ def generate_gpt_feedback(prompt):
     model = genai.GenerativeModel("gemini-2.0-flash")
     response = model.generate_content(f"{system_message}\n\n{prompt}")
 
-    return response.text.strip()
+    return response.text.strip() 
+
+def generate_daily_financial_advice():
+    """
+    Generates financial advice using AI and provides it in both English & Pidgin.
+    """
+    prompt_english = "Give a powerful financial advice that inspires good money habits."
+    prompt_pidgin = "Give a powerful financial advice that inspires good money habits in Nigerian Pidgin English."
+
+    model = genai.GenerativeModel("gemini-2.0-flash")
+    
+    # Generate English advice
+    response_eng = model.generate_content(prompt_english)
+    advice_english = response_eng.text.strip()
+
+    # Generate Pidgin advice
+    response_pidgin = model.generate_content(prompt_pidgin)
+    advice_pidgin = response_pidgin.text.strip()
+
+    return {"english": advice_english, "pidgin": advice_pidgin}
