@@ -83,7 +83,7 @@ def cached_gpt_tip(pidgin):
 
 if use_gpt:
     gpt_tip = cached_gpt_tip(pidgin_toggle)
-    st.markdown(f"🧠 AI Tip:{gpt_tip}", unsafe_allow_html=True)
+    st.markdown(f"🧠 AI Tip: {gpt_tip}", unsafe_allow_html=True)
 
 
 st.header("📖 Ask for Daily Financial Wisdom")
