@@ -6,6 +6,7 @@ import random
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 def generate_gpt_tip(pidgin=False):
+    today = datetime.today().strftime("%Y-%m-%d")
     prompt = random.choice([
         f"Give a personal finance tip about saving money ({today}).",
         f"Provide investment wisdom for long-term wealth ({today}).",
