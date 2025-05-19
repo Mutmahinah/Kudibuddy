@@ -9,11 +9,11 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 def generate_gpt_tip(pidgin=False):
     today = datetime.today().strftime("%Y-%m-%d")
     prompt = random.choice([
-        f"Give a personal finance tip about saving money ({today}).",
-        f"Provide investment wisdom for long-term wealth ({today}).",
-        f"Suggest a budgeting trick for managing expenses wisely ({today}).",
-        f"Offer financial advice on avoiding debt ({today}).",
-        f"Share a smart money habit for financial independence ({today})."
+        f"Give a very short and powerful personal finance tip. ({today}).",
+        f"Share a one-line investment wisdom. ({today}).",
+        f"Provide a quick budgeting rule. ({today}).",
+        f"Offer a brief financial habit for success. ({today}).",
+        f"Suggest a one-sentence saving strategy. ({today})."
     ])
 
     if pidgin:
